@@ -6,6 +6,9 @@
 	animating = false
 	openQueue = []
 
+	openKrzana = ->
+		FlowRouter.go("krzana")
+
 	toggleArrow = (status = null) ->
 		if status is -1 or (status isnt 1 and arrow.hasClass "top")
 			arrow.removeClass "top"
@@ -107,6 +110,7 @@
 		return sideNav
 
 	init: init
+	openKrzana: openKrzana
 	setFlex: setFlex
 	getFlex: getFlex
 	openFlex: openFlex

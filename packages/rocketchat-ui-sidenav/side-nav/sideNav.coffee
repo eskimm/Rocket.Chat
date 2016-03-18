@@ -24,6 +24,9 @@ Template.sideNav.helpers
 		return @template
 
 Template.sideNav.events
+	'click .krzana-link': ->
+		SideNav.openKrzana()
+
 	'click .close-flex': ->
 		SideNav.closeFlex()
 
