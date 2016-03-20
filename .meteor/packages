@@ -138,10 +138,7 @@ yasaricli:slugify
 yasinuslu:blaze-meta
 # sanjo:jasmine
 # velocity:html-reporter
-<<<<<<< ours
 smoral:sweetalert
 rocketchat:iframe-login
 rocketchat:katex
-=======
 rocketchat:krzana
->>>>>>> theirs
