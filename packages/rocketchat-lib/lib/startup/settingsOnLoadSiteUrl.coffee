@@ -10,3 +10,8 @@ RocketChat.settings.get 'Site_Url', (key, value) ->
 
 		if Meteor.isServer
 			RocketChat.hostname = url.parse(value).hostname
+
+			process.env.MOBILE_ROOT_URL = value
+			process.env.MOBILE_DDP_URL = value
+			if WebAppInternals?.generateBoilerplate
+				WebAppInternals.generateBoilerplate()
