@@ -9,6 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
   api.use([
+    'ecmascript',
     'coffeescript',
     'underscore',
     'rocketchat:lib'
@@ -22,6 +23,7 @@ Package.onUse(function(api) {
   api.use('templating', 'client');
 
   api.addFiles('lib/rocketchat.coffee', ['server','client']);
+
   api.addFiles('client/lib/ChatPermissions.coffee', ['client']);
   api.addFiles('client/lib/models/Roles.coffee', ['client']);
   api.addFiles('client/lib/models/Users.js', ['client']);
