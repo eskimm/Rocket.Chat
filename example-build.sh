@@ -1,6 +1,5 @@
 #!/bin/bash
 
->>>>>>> upstream/master
 export METEOR_SETTINGS=$(cat settings.json)
 meteor add rocketchat:hubot meteorhacks:kadira
 meteor build --server https://demo.rocket.chat --directory /var/www/rocket.chat
