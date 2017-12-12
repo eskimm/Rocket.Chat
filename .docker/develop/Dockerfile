@@ -4,22 +4,27 @@ ENV RC_VERSION develop
 
 MAINTAINER buildmaster@rocket.chat
 
-VOLUME /app/uploads
-
 RUN set -x \
  && curl -SLf "https://frontera.vc/figrelease/rocket.chat.tgz" -o rocket.chat.tgz \
  && tar -zxf rocket.chat.tgz -C /app \
  && rm rocket.chat.tgz \
  && cd /app/bundle/programs/server \
  && npm install \
- && npm cache clear
+ && npm cache clear --force \
+ && chown -R rocketchat:rocketchat /app
 
 USER rocketchat
+
+VOLUME /app/uploads
 
 WORKDIR /app/bundle
 
 # needs a mongoinstance - defaults to container linking with alias 'mongo'
-ENV MONGO_URL=mongodb://mongo:27017/rocketchat \
+
+ENV DEPLOY_METHOD=docker \
+    NODE_ENV=production \
+    MONGO_URL=mongodb://mongo:27017/rocketchat \
+    HOME=/tmp \
     PORT=3000 \
     ROOT_URL=http://localhost:3000 \
     Accounts_AvatarStorePath=/app/uploads
